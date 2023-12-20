@@ -1,0 +1,66 @@
+/*code for true position*/
+.container
+{
+  display:grid;
+   grid-template-columns: 1fr;
+  border: 3px solid;
+  background-color: rgb(222, 216, 216);
+}
+.container1{
+  background-color: whitesmoke;
+}
+img{
+  
+  width: 600px;
+  height: 200px;
+}
+
+.btns{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+button{
+  width: 100px;
+  background-color: gray;
+}
+button:hover{
+  width: 100px;
+  background-color: rgb(245, 238, 238);
+}
+
+
+
+/*.circle-label {
+  
+  display: inline-block;
+   Adjust the size of the circle as needed 
+  width: 96px; 
+  height: 96px;
+
+
+  border-radius: 50%;
+  border:solid;
+  
+}
+*/
+
+/*.circle-label2 {
+  
+  display: inline-block;
+   Adjust the size of the circle as needed 
+  height: 96px;
+  width: 96px; 
+  
+  Affects the location of the circle
+  position: absolute;
+  top: truePositionY;
+  left: truePositionx;
+  transition: left 0.3s ease;
+
+  border-radius: 50%;
+  border:solid red;
+
+}*/
