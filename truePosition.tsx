@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Trueposition = () => {
   const [truePositionX, setTruePositionX] = useState(0);
@@ -16,7 +16,8 @@ const Trueposition = () => {
   const [mmc, setMmc] = useState(0);
   const [lmc, setLmc] = useState(0);
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [bonusT, setbonusT] = useState(0);
+  const [deviationAngel, setDeviationAngel] = useState(0);
 
   /*const tolerance = 5;*/
 
@@ -48,6 +49,7 @@ const Trueposition = () => {
 */
 
   /*<label className="two">
+
 <label className="circle-label">
 <label>x position</label>
   <input
@@ -94,6 +96,8 @@ const Trueposition = () => {
             Math.pow(truePositionY - truePositionY2, 2)
         )
       );
+      setbonusT(mmc - lmc);
+
       /*setTruePositionX(0);
       setTruePositionX2(0);
       setTruePositionY(0);
@@ -101,12 +105,11 @@ const Trueposition = () => {
     }
   };
 
-  useEffect(() => {}, []);
   const calc = () => {
     if (maxDia !== 0) {
       setMidDia(maxDia - tolerance / 2);
-      setMinDia(0);
-      setMaxDia(0);
+      /*setMinDia(0);
+      setMaxDia(0);*/
     }
   };
 
@@ -128,8 +131,12 @@ const Trueposition = () => {
         <div className="container1">
           <h1>True Position</h1>
         </div>
-        <hr />
-        <img src="true position.jpg" alt="True Position img" />
+        <div>
+          <div className="img">
+            <img src="true position.jpg" alt="True Position img" />
+          </div>
+          <hr />
+        </div>
         <div className="container2">
           <label>
             <label>
@@ -163,24 +170,26 @@ const Trueposition = () => {
             </label>
           </label>
         </div>
-
-        <div className="container3">
+        <div>
           <hr />
-          <h3>Tolerance:</h3>
+        </div>
+        <div className="container3">
           <div>
-            <input
-              type="number"
-              value={tolerance}
-              onChange={(e) => settolerance(parseFloat(e.target.value))}
-            />
-            <br />
+            <h3>
+              Tolerance:{" "}
+              <input
+                type="number"
+                value={tolerance}
+                onChange={(e) => settolerance(parseFloat(e.target.value))}
+              />
+            </h3>
             <label>Min: </label>
             <input
               type="number"
               value={minDia}
               onChange={(e) => setMinDia(parseFloat(e.target.value))}
             />
-            <label>Max: </label>
+            <label> Max: </label>
             <input
               type="number"
               value={maxDia}
@@ -192,46 +201,57 @@ const Trueposition = () => {
             <br />
             <label>True Position of Hole: </label>
             <label htmlFor="decimalInput">{total}</label>
-
-            <hr />
           </div>
         </div>
-
+        <div>
+          <hr />
+        </div>
         <div className="container4">
-          <label>
-            Nominal Dia:
-            <input
-              type="number"
-              value={nomDia}
-              onChange={(e) => setNomDia(parseFloat(e.target.value))}
-            />
-          </label>
-          <br />
-          <input type="checkbox" onClick={MMC} />
-          <label>
-            Apply Maximum <br />
-            <span></span>Material Condition
-          </label>
+          <div className="base-box">
+            <label>
+              Nominal Dia:
+              <input
+                type="number"
+                value={nomDia}
+                onChange={(e) => setNomDia(parseFloat(e.target.value))}
+              />
+            </label>
+            <br />
+            <hr />
 
-          <br />
-          <input type="checkbox" onClick={LMC} />
-          <label>
-            Apply Least <br />
-            <span></span>Material Condition
-          </label>
-          <p>
-            Bonus Tolerance:{null}
-            <label>0.0020 (not active yet)</label>
-          </p>
-          <p>
-            True Position at MMC:<label>{mmc}</label>
-          </p>
-          <p>
-            True Position at MMC:<label>{lmc}</label>
-          </p>
-          <p>
-            Deviation Angel:<label>0.0020 (not active yet) </label>
-          </p>
+            <div>
+              <input type="checkbox" onClick={MMC} />
+              <label>
+                Apply Maximum <br />
+                <span></span>Material Condition
+              </label>
+
+              <br />
+              <hr />
+              <input type="checkbox" onClick={LMC} />
+              <label>
+                Apply Least <br />
+                <span></span>Material Condition
+              </label>
+              <hr />
+
+              <label>Bonus Tolerance: {bonusT}</label>
+              <hr />
+
+              <label>
+                True Position at MMC:<label>{mmc}</label>
+              </label>
+              <hr />
+
+              <label>
+                True Position at MMC:<label>{lmc}</label>
+              </label>
+              <hr />
+              <label>
+                Deviation Angel:<label>0.0020 (not active yet) </label>
+              </label>
+            </div>
+          </div>
         </div>
 
         <div className="btns">

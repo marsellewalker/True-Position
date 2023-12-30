@@ -1,19 +1,68 @@
 /*code for true position*/
+
 .container
 {
-  display:grid;
-   grid-template-columns: 1fr;
+  display:flex;
+  flex-direction: column;
   border: 3px solid;
+  border-radius: 15px;
   background-color: rgb(222, 216, 216);
 }
+
 .container1{
-  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;  background-color: whitesmoke;
+  border-radius: 15px;
 }
-img{
+
+.container2{
+  display: flex;
+  justify-content: center;
+}
+
+.container3{
+  display: flex;
+  justify-content: center;
+}
+
+.container4{
+  display: flex;
+  justify-content: center;
+}
+
+.base-box{
+  display: flex;
+  flex-wrap: nowrap;
+  gap:5px;
+
+}
+
+input{
+  border: 2px solid;
+  border-radius: 7px;
+  outline: none;
+}
+label{
+text-shadow: 1px 1px .5px ;}
+h1{
+  text-shadow: 1px 1px 2px ;}
+
+h3{
+    text-shadow: 1px 1px 2px ;}
   
-  width: 600px;
+.img{
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 200px;
 }
+img{
+  border: 3px solid;
+  border-radius: 10%;
+}
+
+
+
 
 .btns{
   display: flex;
@@ -21,10 +70,15 @@ img{
   justify-content: flex-end;
   padding-right: 20px;
   padding-bottom: 20px;
+  padding-top: 20px;
+
 }
 button{
   width: 100px;
   background-color: gray;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px;
 }
 button:hover{
   width: 100px;
