@@ -17,7 +17,7 @@ const Trueposition = () => {
   const [lmc, setLmc] = useState(0);
 
   const [bonusT, setbonusT] = useState(0);
-  const [deviationAngel, setDeviationAngel] = useState(0);
+  const [deviation, setDeviation] = useState(0);
 
   /*const tolerance = 5;*/
 
@@ -90,12 +90,10 @@ const Trueposition = () => {
       truePositionX2 &&
       truePositionY2 !== 0
     ) {
-      setTotal(
-        Math.sqrt(
-          Math.pow(truePositionX - truePositionX2, 2) +
-            Math.pow(truePositionY - truePositionY2, 2)
-        )
-      );
+      const deviationx = Math.abs(truePositionX - truePositionX2);
+      const deviationy = Math.abs(truePositionY - truePositionY2);
+
+      setTotal( Math.sqrt(deviationx **2 + deviationy ** 2));
       setbonusT(mmc - lmc);
 
       /*setTruePositionX(0);
@@ -138,37 +136,37 @@ const Trueposition = () => {
           <hr />
         </div>
         <div className="container2">
-          <label>
-            <label>
+          <div>
               <label>X position</label>
               <input
                 type="number"
                 value={truePositionX}
                 onChange={(e) => setTruePositionX(parseFloat(e.target.value))}
               />
-              <label>Y position</label>
+              <br/>
+              <label> Y position</label>
               <input
                 type="number"
                 value={truePositionY}
                 onChange={(e) => setTruePositionY(parseFloat(e.target.value))}
               />
-
-              <label />
-
+          </div>
+              
+          <div>
               <label>Actual X position</label>
               <input
                 type="number"
                 value={truePositionX2}
                 onChange={(e) => setTruePositionX2(parseFloat(e.target.value))}
               />
+            <br/>
               <label>Actual Y position</label>
               <input
                 type="number"
                 value={truePositionY2}
                 onChange={(e) => setTruePositionY2(parseFloat(e.target.value))}
               />
-            </label>
-          </label>
+            </div>
         </div>
         <div>
           <hr />
